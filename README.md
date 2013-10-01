@@ -1,4 +1,8 @@
-# grunt-autoshot [![Build Status](https://travis-ci.org/Ferrari/grunt-autoshot.png?branch=master)](https://travis-ci.org/Ferrari/grunt-autoshot)
+# grunt-localscreenshots
+
+This is my modification of original grunt-autoshot plugin. (https://github.com/Ferrari/grunt-autoshot)
+
+With this plugin you can make screenshots of all static html files located inside of some directory.
 
 Create a quick screenshot for your site which could help for document or testing. 
 Inspired by [Testing your responsive design with PhantomJS](http://daker.me/2013/07/testing-your-responsive-design-with-phantomjs.html), also suport different resolution base on your viewport, it's useful to responsive design.
@@ -9,13 +13,13 @@ This plugin requires Grunt.
 If you haven't used [Grunt](http://gruntjs.com/) before, be sure to check out the [Getting Started](http://gruntjs.com/getting-started) guide, as it explains how to create a [Gruntfile](http://gruntjs.com/sample-gruntfile) as well as install and use Grunt plugins. Once you're familiar with that process, you may install this plugin with this command:
 
 ```shell
-npm install grunt-autoshot --save-dev
+npm install grunt-localscreenshots --save-dev
 ```
 
 Once the plugin has been installed, it may be enabled inside your Gruntfile with this line of JavaScript:
 
 ```js
-grunt.loadNpmTasks('grunt-autoshot');
+grunt.loadNpmTasks('grunt-localscreenshots');
 ```
 
 Final and the most important thing, please make sure [**phantomjs**](http://phantomjs.org/) are in your PATH, cause this plugin use it to generate screenshot, so remember [install](http://phantomjs.org/download.html) first.
@@ -23,24 +27,24 @@ Final and the most important thing, please make sure [**phantomjs**](http://phan
 ## The "autoshot" task
 
 ### Overview
-In your project's Gruntfile, add a section named `autoshot` to the data object passed into `grunt.initConfig()`.
+In your project's Gruntfile, add a section named `localscreenshots` to the data object passed into `grunt.initConfig()`.
+
+
 
 ```js
 grunt.initConfig({
-  autoshot: {
-    default_options: {
-      options: {
-        // necessary config
-        path: '',
-        filename: '',
-        type: '',
-        // optional config, must set either remote or local
-        remote: '',
-        local: '',
-        viewport: [] 
-      },
-    },
-  },
+  		localscreenshots: {
+				options: {
+					path: 'screenshots',
+					type: 'png',
+					local : {
+						path: 'public',
+						port: 3000
+					},
+					viewport: ['600x800', '768x1024', '1024x1024'],
+				},
+				src: ['public/*.html']
+		}
 })
 ```
 
@@ -51,14 +55,6 @@ Type: `String`
 
 Path to the directory which screenshots will be saved.
 
-#### options.filename
-Type: `String`
-
-Default filename of screenshots.  
-It will combine with local, remote and viewport.
-```
-ex: [local|remote]-{filename}-{viewport}
-```
 
 #### options.type
 Type: String
@@ -66,13 +62,7 @@ Type: String
 Image type of screenshot.  
 PhantomJS supports JPEG, PNG, GIF and PDF right now.
 
-#### options.remote
-Type: String
 
-The url of target webpage.
-```
-ex: http://www.google.com
-```
 
 #### options.local
 Type: String
@@ -93,6 +83,3 @@ Autoshot could create the screenshot base on given viewport, it's helpful if you
 ex: ['1024x768', '1920x1080']
 ```
 You could add any resolution you want, just follow the same format.
-
-## License
-Copyright (c) 2013 Ferrari Lee. Licensed under the MIT license.
