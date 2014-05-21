@@ -11,7 +11,7 @@ it('Screenshots should exists', function () {
 //this fails on linux
 
 it('Screenshots should match the expected ones', function () {
-	var local, remote, expected;
+  var local, remote, expected;
 
   local = grunt.file.read('tmp/src/index-768x1024.png');
   expected = grunt.file.read('test/expected/index-768x1024.png');
