@@ -29,30 +29,25 @@ module.exports = function(grunt) {
     },
 
     // Configuration to be run (and then tested).
-    localscreenhshots: {
-      default_options: {
-        options: {
-          path: './test/screenshot',
-          filename: 'screenshot',
-          type: 'jpg',
-          remote: 'http://github.com/',
-          local: {
-            path: './test/src',
-            port: 7788
-          },
-          viewport: [
-            '1920x1080',
-            '1024x768',
-            '640x960'
-          ]
+    localscreenshots: {
+      options: {
+        path: 'tmp',
+        type: 'png',
+        local : {
+            path: 'test',
+            port: 3000
         },
+        viewport: ['600x800', '768x1024', '1024x1024']
       },
+      src: ['test/src/*.html']
     },
 
-    // Unit tests.
-    nodeunit: {
-      tests: ['test/*_test.js'],
-    },
+    //test
+    simplemocha: {
+      test: {
+        src: 'test/*.js'
+      }
+    }
 
   });
 
@@ -62,13 +57,11 @@ module.exports = function(grunt) {
   // These plugins provide necessary tasks.
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-clean');
-  grunt.loadNpmTasks('grunt-contrib-nodeunit');
+  grunt.loadNpmTasks('grunt-simple-mocha');
 
   // Whenever the "test" task is run, first clean the "tmp" dir, then run this
   // plugin's task(s), then test the result.
-  grunt.registerTask('test', ['clean', 'autoshot', 'nodeunit']);
+  grunt.registerTask('default', ['clean', 'localscreenshots', 'simplemocha']);
 
-  // By default, lint and run all tests.
-  grunt.registerTask('default', ['jshint', 'test']);
 
 };

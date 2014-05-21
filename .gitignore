@@ -37,3 +37,4 @@ node_modules
 components
 reports
 cache/*
+tmp/*

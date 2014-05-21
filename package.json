@@ -1,10 +1,10 @@
 {
   "name": "grunt-localscreenshots",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Create a quick screenshot of all local static pages.",
-  "homepage": "https://github.com/danielhusar/grunt-screenshots",
+  "homepage": "https://github.com/danielhusar/grunt-localscreenshots",
   "bugs": {
-    "url": "https://github.com/danielhusar/grunt-screenshots/issues"
+    "url": "https://github.com/danielhusar/grunt-localscreenshots/issues"
   },
   "author": {
     "name": "Daniel Husar",
@@ -18,7 +18,7 @@
   "main": "Gruntfile.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/danielhusar/grunt-screenshots"
+    "url": "https://github.com/danielhusar/grunt-localscreenshots"
   },
   "licenses": [
     {
@@ -27,11 +27,11 @@
   ],
   "devDependencies": {
     "grunt-contrib-jshint": "~0.2.0",
-    "grunt-contrib-nodeunit": "~0.1.2",
-    "grunt-contrib-clean": "~0.4.0"
+    "grunt-contrib-clean": "~0.4.0",
+    "grunt-simple-mocha": "^0.4.0"
   },
   "scripts": {
-    "test": "grunt test"
+    "test": "grunt"
   },
   "dependencies": {
     "st": "~0.2.1",
