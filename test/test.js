@@ -22,7 +22,6 @@ it('Should generete proper screenshots', function () {
   assert.equal(local, expected);
   */
 
-	assert(grunt.file.read('tmp/src/index-600x800.png'));
 	assert(grunt.file.read('tmp/src/index-768x1024.png'));
 	assert(grunt.file.read('tmp/src/index-1024x1024.png'));
 });

@@ -37,7 +37,7 @@ module.exports = function(grunt) {
             path: 'test',
             port: 3000
         },
-        viewport: ['600x800', '768x1024', '1024x1024']
+        viewport: ['768x1024', '1024x1024']
       },
       src: ['test/src/*.html']
     },
