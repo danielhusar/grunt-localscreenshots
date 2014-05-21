@@ -96,7 +96,7 @@ module.exports = function(grunt) {
       });
     });
 
-    // Listen event to decide when can stop the task 
+    // Listen event to decide when can stop the task
     grunt.event.on('finish', function() {
       done();
     });
