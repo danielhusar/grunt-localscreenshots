@@ -1,6 +1,6 @@
 {
   "name": "grunt-localscreenshots",
-  "version": "0.0.2",
+  "version": "1.0.0",
   "description": "Create a quick screenshot of all local static pages.",
   "homepage": "https://github.com/danielhusar/grunt-localscreenshots",
   "bugs": {
